@@ -1,15 +1,17 @@
 import { render } from 'react-dom'
-import React from 'react'
 
 import { BrowserRouter } from 'react-router-dom'
+import { ErrorBoundary } from 'app/providers/ErrorBoundary'
 import App from './app/App'
 import ThemeProvider from './app/providers/ThemeProvider/ui/ThemeProvider'
 
 render(
   <BrowserRouter>
-    <ThemeProvider>
-      <App />
-    </ThemeProvider>
+    <ErrorBoundary>
+      <ThemeProvider>
+        <App />
+      </ThemeProvider>
+    </ErrorBoundary>
   </BrowserRouter>,
   document.getElementById('root'),
 )

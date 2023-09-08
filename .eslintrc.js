@@ -2,10 +2,12 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
+    jest: true,
   },
   extends: [
     'plugin:react/recommended',
     'airbnb',
+    'plugin:i18next/recommended',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -18,6 +20,7 @@ module.exports = {
   plugins: [
     'react',
     '@typescript-eslint',
+    'i18next',
   ],
   rules: {
     'react/jsx-indent': [2, 2],
@@ -39,13 +42,23 @@ module.exports = {
     '@typescript-eslint/semi': 'off',
     'no-unexpected-multiline': 'error',
     'linebreak-style': 0,
-    'no-use-before-define': 'off',
+    // 'no-use-before-define': 'off',
     'react/button-has-type': 0,
     'object-curly-newline': 0,
+    'i18next/no-literal-string': ['error', { markupOnly: true, ignoreAttribute: ['data-testid', 'fallback', 'to', 'id'] }],
+    'max-len': ['error', { ignoreComments: true, code: 200 }],
   },
 
   globals: {
     __IS_DEV__: true,
   },
+  overrides: [
+    {
+      files: ['**/src/**/*.test.{ts,tsx}'],
+      rules: {
+        'i18next/no-literal-string': 'off',
+      },
+    },
+  ],
 
 }

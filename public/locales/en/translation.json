@@ -2,5 +2,8 @@
   "Py": "En",
   "O нас": "About",
   "Главная": "main",
-  "Имя": "name"
+  "Имя": "name",
+  "Страница не найдена": "Page not found",
+  "Something went wrong": "Something went wrong",
+  "Обновить страницу": "reload page"
 }

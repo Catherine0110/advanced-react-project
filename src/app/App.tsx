@@ -1,4 +1,5 @@
-import Reactf, { Suspense } from 'react'
+/* eslint-disable i18next/no-literal-string */
+import { Suspense, useEffect } from 'react'
 
 import './styles/index.scss'
 

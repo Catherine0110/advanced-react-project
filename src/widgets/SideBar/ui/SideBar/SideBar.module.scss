@@ -2,14 +2,11 @@
     position: relative;
     background-color: var(--inverted-bg-color);
     width: var(--navbar-uncollapsed-width);
-    -webkit-transition: all 0.2s ease-in;
     transition: all 0.2s ease-in;
 }
 
 .collapsed {
     width: var(--navbar-collapsed-width);
-    -webkit-transition: all 0.2s ease-in;
-    transition: all 0.2s ease-in;
 }
 
 .swithers {

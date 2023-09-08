@@ -1,0 +1,12 @@
+.PageError {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.ErrTitle {
+    margin-bottom: 20px;
+    font-size: var(--font-size-xl);
+}

@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 import { useTheme } from 'app/providers/ThemeProvider'
 
 import ThemeIcon from 'shared/assets/theme-icon.svg'
