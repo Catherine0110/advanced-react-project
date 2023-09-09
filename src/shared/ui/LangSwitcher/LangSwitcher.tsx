@@ -17,7 +17,7 @@ const LangSwitcher: FC<LangSwitcherProps> = (props) => {
   }
   return (
     <div className={classNames(cls.LangSwitcher, {}, [className])}>
-      <Button onClick={changeLang} theme={ButtonThemes.CLEAR}>
+      <Button onClick={changeLang} theme={ButtonThemes.CLEAR} className={cls.invertColor}>
         {t('Py')}
       </Button>
     </div>

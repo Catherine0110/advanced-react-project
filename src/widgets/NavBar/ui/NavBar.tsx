@@ -13,10 +13,12 @@ const NavBar = ({ className }: NavBarProps) => {
   return (
     <div className={classNames(cls.NavBar, {}, [className])}>
       <div className={cls.linksWrap}>
-        <AppLink className={cls.mainLink} to="/">
+        <AppLink theme={AppLinkTheme.INVERTED_PRIMARY} className={cls.mainLink} to="/">
           {t('Главная')}
         </AppLink>
-        <AppLink to="/about">{t('O нас')}</AppLink>
+        <AppLink theme={AppLinkTheme.INVERTED_PRIMARY} to="/about">
+          {t('O нас')}
+        </AppLink>
       </div>
     </div>
   )

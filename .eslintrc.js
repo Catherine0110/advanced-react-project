@@ -47,6 +47,7 @@ module.exports = {
     'object-curly-newline': 0,
     'i18next/no-literal-string': ['error', { markupOnly: true, ignoreAttribute: ['data-testid', 'fallback', 'to', 'id'] }],
     'max-len': ['error', { ignoreComments: true, code: 200 }],
+    'implicit-arrow-linebreak': 1,
   },
 
   globals: {

@@ -1,8 +1,9 @@
-.NavBar {
+.SideBar {
     position: relative;
     background-color: var(--inverted-bg-color);
     width: var(--navbar-uncollapsed-width);
     transition: all 0.2s ease-in;
+    height: calc(100vh - 85px);
 }
 
 .collapsed {
