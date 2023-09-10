@@ -5,8 +5,7 @@ import './styles/index.scss'
 
 import { AppRouter } from 'app/providers/router'
 import { NavBar } from 'widgets/NavBar/NavBar'
-
-import SideBar from 'widgets/SideBar/ui/SideBar/SideBar'
+import { SideBar } from 'widgets/SideBar'
 import { useTheme } from './providers/ThemeProvider/lib/useTheme'
 
 import 'shared/config/i18next/i18n'
