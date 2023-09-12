@@ -1,0 +1,60 @@
+import React, { MutableRefObject, useCallback, useEffect, useRef, useState } from 'react'
+import Portal from 'shared/ui/Portal/Portal'
+import { classNames } from 'shared/lib/classNames/classNames'
+import cls from './Modal.module.scss'
+
+interface ModalProp {
+  children: React.ReactNode
+  closeModal: () => void
+  portalEl?: HTMLElement
+  isOpen: boolean
+}
+
+const Modal: React.FC<ModalProp> = ({ children, closeModal, portalEl, isOpen }) => {
+  const el = portalEl || document.body
+  const [contentClose, setContentClose] = useState(false)
+
+  const modalClose = useCallback(() => {
+    setContentClose(true)
+    closeModal()
+    setContentClose(false)
+  }, [closeModal])
+
+  const onkeydown = useCallback(
+    (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        closeModal()
+      }
+    },
+    [closeModal],
+  )
+
+  useEffect(() => {
+    if (isOpen) {
+      window.addEventListener('keydown', onkeydown)
+    }
+
+    return () => {
+      window.removeEventListener('keydown', onkeydown)
+    }
+  }, [isOpen, onkeydown])
+
+  return (
+    <Portal element={el}>
+      <div
+        className={classNames(
+          cls.Modal,
+          { [cls.contentClose]: contentClose, [cls.isOpen]: isOpen },
+          [],
+        )}
+        onClick={modalClose}
+      >
+        <div onClick={(e) => e.stopPropagation()} className={cls.content}>
+          {children}
+        </div>
+      </div>
+    </Portal>
+  )
+}
+
+export default Modal

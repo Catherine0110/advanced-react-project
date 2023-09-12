@@ -5,6 +5,10 @@
 
 body {
     font-family: var(--font-family-main);
+
+    &.overflow {
+        overflow: hidden;
+    }
 }
 
 #app {

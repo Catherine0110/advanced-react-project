@@ -11,6 +11,7 @@ export function buildPlugins({ paths, isDev }: BuildOptions): WebpackPluginInsta
   const plugins = [
     new HtmlWebpackPlugin({
       template: paths.html,
+      title: './index.html',
     }),
     new ProgressPlugin(),
     new MiniCssExtractPlugin({
