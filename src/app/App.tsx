@@ -31,7 +31,7 @@ export const App = () => {
           <SideBar />
           <AppRouter />
         </div>
-        <Modal isOpen={modal} closeModal={close}>
+        <Modal lazy isOpen={modal} closeModal={close}>
           {childAppend}
         </Modal>
       </Suspense>

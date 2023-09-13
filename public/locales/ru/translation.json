@@ -6,10 +6,12 @@
   "Страница не найдена": "Страница не найдена",
   "Произошла ошибка": "Произошла ошибка",
   "Обновить страницу": "Обновить страницу",
-  "Войти": "Войти",
+  "Войти": "Log in",
   "Lorem ipsum dolor sit amet consectetur adipisicing elit": {
     " Alias dignissimos debitis, nemo, iusto dolores consequuntur quam explicabo laboriosam labore quos voluptatum assumenda sunt numquam asperiores quidem ea consectetur dolorem laborum": {
       "": "lor"
     }
-  }
+  },
+  "Логин": "Логин",
+  "Пароль": "Пароль"
 }

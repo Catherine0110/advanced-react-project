@@ -5,6 +5,7 @@ import Button, { ButtonThemes } from 'shared/ui/Button/Button'
 
 import { useContext, useEffect } from 'react'
 import { ModalContext } from 'app/providers/Modal/lib/ModalContext'
+import LoginForm from 'features/AuthByUserName/ui/LoginForm/LoginForm'
 import cls from './NavBar.module.scss'
 
 interface NavBarProps {
@@ -16,7 +17,7 @@ const NavBar = ({ className }: NavBarProps) => {
   const { open, setCh } = useContext(ModalContext)
 
   const openM = () => {
-    setCh('qqqqqqqqq')
+    setCh(<LoginForm />)
     open()
   }
   return (

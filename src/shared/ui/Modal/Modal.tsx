@@ -9,11 +9,13 @@ interface ModalProp {
   closeModal: () => void
   portalEl?: HTMLElement
   isOpen: boolean
+  lazy: boolean
 }
 
-const Modal: React.FC<ModalProp> = ({ children, closeModal, portalEl, isOpen }) => {
+const Modal: React.FC<ModalProp> = ({ children, closeModal, portalEl, isOpen, lazy }) => {
   const el = portalEl || document.body
   const [contentClose, setContentClose] = useState(false)
+  const [mounted, setMounted] = useState(false)
   const { theme } = useTheme()
 
   const modalClose = useCallback(() => {
@@ -40,6 +42,16 @@ const Modal: React.FC<ModalProp> = ({ children, closeModal, portalEl, isOpen }) 
       window.removeEventListener('keydown', onkeydown)
     }
   }, [isOpen, onkeydown])
+
+  useEffect(() => {
+    if (isOpen) {
+      setMounted(true)
+    }
+  }, [isOpen])
+
+  if (lazy && !mounted) {
+    return null
+  }
 
   return (
     <Portal element={el}>
