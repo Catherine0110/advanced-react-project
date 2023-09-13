@@ -1,6 +1,7 @@
 import React, { MutableRefObject, useCallback, useEffect, useRef, useState } from 'react'
 import Portal from 'shared/ui/Portal/Portal'
 import { classNames } from 'shared/lib/classNames/classNames'
+import { useTheme } from 'app/providers/ThemeProvider'
 import cls from './Modal.module.scss'
 
 interface ModalProp {
@@ -13,6 +14,7 @@ interface ModalProp {
 const Modal: React.FC<ModalProp> = ({ children, closeModal, portalEl, isOpen }) => {
   const el = portalEl || document.body
   const [contentClose, setContentClose] = useState(false)
+  const { theme } = useTheme()
 
   const modalClose = useCallback(() => {
     setContentClose(true)
@@ -45,7 +47,7 @@ const Modal: React.FC<ModalProp> = ({ children, closeModal, portalEl, isOpen }) 
         className={classNames(
           cls.Modal,
           { [cls.contentClose]: contentClose, [cls.isOpen]: isOpen },
-          [],
+          [theme, 'app_modal'],
         )}
         onClick={modalClose}
       >

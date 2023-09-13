@@ -5,13 +5,16 @@
 
 body {
     font-family: var(--font-family-main);
+    background-color: var(--bg-color);
+    color: var(--primary-color);
 
     &.overflow {
         overflow: hidden;
     }
 }
 
-#app {
+#app,
+.app_modal {
     font-family: var(--font-family-main);
     background-color: var(--bg-color);
     color: var(--primary-color);
