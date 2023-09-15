@@ -2,7 +2,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react'
 
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from 'app/providers/ThemeProvider'
-import Loader from './Loader'
+import Loader, { LoaderSize } from './Loader'
 
 export default {
   title: 'shared/Loader',
@@ -23,3 +23,19 @@ Dark.args = {
 }
 
 Dark.decorators = [ThemeDecorator(Theme.DARK)]
+
+export const SizeS = Template.bind({})
+SizeS.args = {
+  children: 'Text',
+  size: LoaderSize.S,
+}
+export const SizeM = Template.bind({})
+SizeM.args = {
+  children: 'Text',
+  size: LoaderSize.M,
+}
+export const SizeL = Template.bind({})
+SizeL.args = {
+  children: 'Text',
+  size: LoaderSize.L,
+}

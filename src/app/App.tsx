@@ -11,17 +11,28 @@ import 'shared/config/i18next/i18n'
 import { ModalContext } from 'app/providers/Modal/lib/ModalContext'
 
 import Modal from 'shared/ui/Modal/Modal'
+import { useDispatch, useSelector } from 'react-redux'
+import { getUserAuthData, userActions } from 'entities/User'
 import { useTheme } from './providers/ThemeProvider/lib/useTheme'
 
 export const App = () => {
   const { theme } = useTheme()
   const { close, modal, childAppend } = useContext(ModalContext)
+  const dispatch = useDispatch()
+  const authData = useSelector(getUserAuthData)
   const appRef = useRef()
   const [refA, setRefA] = useState(null)
 
   useEffect(() => {
+    dispatch(userActions.initAuthData())
     setRefA(appRef.current)
-  }, [])
+  }, [dispatch])
+
+  useEffect(() => {
+    if (modal && authData) {
+      close()
+    }
+  }, [authData, modal, close])
 
   return (
     <div ref={appRef} id="app" className={theme}>
