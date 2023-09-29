@@ -3,11 +3,13 @@ import { classNames } from 'shared/lib/classNames/classNames'
 import { useTranslation } from 'react-i18next'
 import Button, { ButtonThemes } from 'shared/ui/Button/Button'
 
-import { useContext, useEffect } from 'react'
+import { Suspense, useContext, useEffect } from 'react'
 import { ModalContext } from 'app/providers/Modal/lib/ModalContext'
-import LoginForm from 'features/AuthByUserName/ui/LoginForm/LoginForm'
+
 import { useDispatch, useSelector } from 'react-redux'
 import { getUserAuthData, userActions } from 'entities/User'
+import { LoginFormAsync } from 'features/AuthByUserName/ui/LoginForm/LoginForm.async'
+import PageLoader from 'widgets/PageLoader/ui/PageLoader'
 import cls from './NavBar.module.scss'
 
 interface NavBarProps {
@@ -21,7 +23,11 @@ const NavBar = ({ className }: NavBarProps) => {
   const dispatch = useDispatch()
 
   const openM = () => {
-    setCh(<LoginForm />)
+    setCh(
+      <Suspense fallback={<PageLoader />}>
+        <LoginFormAsync />
+      </Suspense>,
+    )
     open()
   }
   const logOut = () => {
