@@ -28,10 +28,12 @@
 
 .isOpen {
     .content {
+        animation: opencontent 0.3s;
         transform: scale(1);
     }
 
     &.Modal {
+        animation: open 0.3s;
         transition: 0.3s ease;
         opacity: 1;
         z-index: var(--modal-z-index);
@@ -48,5 +50,25 @@
         transition: 0.3s ease;
         opacity: 0;
         z-index: -1;
+    }
+}
+
+@keyframes open {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes opencontent {
+    0% {
+        scale: 0;
+    }
+
+    100% {
+        scale: 1;
     }
 }

@@ -1,4 +1,4 @@
-import React, { InputHTMLAttributes, useEffect, useRef, useState } from 'react'
+import React, { InputHTMLAttributes, memo, useEffect, useRef, useState } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './Input.module.scss'
 
@@ -12,7 +12,7 @@ interface InputProps extends HTMLInputProps {
   autofocus?: boolean
 }
 
-const Input = (props: InputProps) => {
+const Input = memo((props: InputProps) => {
   const inputRef = useRef(null)
   const [isFocused, setIsFocused] = useState(false)
   const { className, onChange, type, value, autofocus, ...otherProps } = props
@@ -29,16 +29,9 @@ const Input = (props: InputProps) => {
 
   return (
     <div className={classNames(cls.InputWrap, {}, [className])}>
-      <input
-        ref={inputRef}
-        className={cls.Input}
-        type={type}
-        value={value}
-        onChange={onChangeHandler}
-        {...otherProps}
-      />
+      <input ref={inputRef} className={cls.Input} type={type} value={value} onChange={onChangeHandler} {...otherProps} />
     </div>
   )
-}
+})
 
 export default Input

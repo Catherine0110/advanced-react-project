@@ -16,5 +16,6 @@
   "Пароль": "Password",
   "Ошибка авторизации": "Auth error",
   "Авторизация": "Authorization",
-  "Выйти": "Log out"
+  "Выйти": "Log out",
+  "Профиль": "Profile"
 }

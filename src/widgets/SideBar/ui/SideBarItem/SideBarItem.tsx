@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import AppLink, { AppLinkTheme } from 'shared/ui/AppLink/AppLink'
 import { SideBarItemType } from 'widgets/SideBar/models/items'
@@ -9,7 +9,7 @@ interface SideBarItemProps {
   collapsed: boolean
 }
 
-const SideBarItem = ({ item, collapsed }: SideBarItemProps) => {
+const SideBarItem = memo(({ item, collapsed }: SideBarItemProps) => {
   const { t } = useTranslation()
   return (
     <AppLink theme={AppLinkTheme.INVERTED_PRIMARY} className={cls.mainLink} to={item.path}>
@@ -17,6 +17,6 @@ const SideBarItem = ({ item, collapsed }: SideBarItemProps) => {
       {!collapsed && <span className={cls.text}>{t(item.text)}</span>}
     </AppLink>
   )
-}
+})
 
 export default SideBarItem

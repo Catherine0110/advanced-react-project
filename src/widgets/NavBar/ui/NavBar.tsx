@@ -3,7 +3,7 @@ import { classNames } from 'shared/lib/classNames/classNames'
 import { useTranslation } from 'react-i18next'
 import Button, { ButtonThemes } from 'shared/ui/Button/Button'
 
-import { Suspense, useContext, useEffect } from 'react'
+import { Suspense, memo, useContext, useEffect } from 'react'
 import { ModalContext } from 'app/providers/Modal/lib/ModalContext'
 
 import { useDispatch, useSelector } from 'react-redux'
@@ -16,7 +16,7 @@ interface NavBarProps {
   className?: string
 }
 
-const NavBar = ({ className }: NavBarProps) => {
+const NavBar = memo(({ className }: NavBarProps) => {
   const { t } = useTranslation()
   const { open, setCh } = useContext(ModalContext)
   const authData = useSelector(getUserAuthData)
@@ -42,6 +42,6 @@ const NavBar = ({ className }: NavBarProps) => {
       </div>
     </div>
   )
-}
+})
 
 export default NavBar

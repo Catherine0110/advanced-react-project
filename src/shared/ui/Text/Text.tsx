@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './Text.module.scss'
 
@@ -14,11 +14,11 @@ interface TextProps {
   title?: string
 }
 
-const Text = ({ className, theme = TextTheme.PRIMARY, text, title }: TextProps) => (
+const Text = memo(({ className, theme = TextTheme.PRIMARY, text, title }: TextProps) => (
   <div className={classNames(cls.TextWrap, {}, [className, cls[theme]])}>
     {title && <h3 className={cls.title}>{title}</h3>}
     {text && <p className={cls.text}>{text}</p>}
   </div>
-)
+))
 
 export default Text

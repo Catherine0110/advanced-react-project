@@ -24,6 +24,10 @@ module.exports = {
     'react-hooks',
   ],
   rules: {
+    '@typescript-eslint/no-unused-vars': [
+      'warn',
+      { argsIgnorePattern: '^_' },
+    ],
     'react/jsx-indent': [2, 2],
     'react/jsx-indent-props': [2, 2],
     indent: [2, 2],

@@ -1,6 +1,7 @@
 import React from 'react';
 import HomeIcon from 'shared/assets/home.svg'
 import AboutIcon from 'shared/assets/about.svg'
+import ProfileIcon from 'shared/assets/profile.svg'
 
 export interface SideBarItemType {
     path: string,
@@ -18,5 +19,10 @@ export const SideBarItemsList: SideBarItemType[] = [
     path: '/about',
     text: 'O нас',
     icon: AboutIcon,
+  },
+  {
+    path: '/profile',
+    text: 'Профиль',
+    icon: ProfileIcon,
   },
 ]
