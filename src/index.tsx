@@ -9,8 +9,8 @@ import App from './app/App'
 import ThemeProvider from './app/providers/ThemeProvider/ui/ThemeProvider'
 
 render(
-  <StoreProvider>
-    <BrowserRouter>
+  <BrowserRouter>
+    <StoreProvider>
       <ErrorBoundary>
         <ThemeProvider>
           <ModalState>
@@ -18,7 +18,7 @@ render(
           </ModalState>
         </ThemeProvider>
       </ErrorBoundary>
-    </BrowserRouter>
-  </StoreProvider>,
+    </StoreProvider>
+  </BrowserRouter>,
   document.getElementById('root'),
 )

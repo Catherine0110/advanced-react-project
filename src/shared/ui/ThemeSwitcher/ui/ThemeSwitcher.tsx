@@ -8,6 +8,7 @@ import Button, { ButtonThemes } from 'shared/ui/Button/Button'
 import cls from './ThemeSwitcher.module.scss'
 
 export enum ThemeSwitcherThemes {
+  CURRENT = 'current',
   INVERTED = 'inverted',
 }
 
@@ -17,11 +18,13 @@ interface ThemeSwitcherProps {
 }
 
 export const ThemeSwitcher = memo((props: ThemeSwitcherProps) => {
-  const { className, colors } = props
+  const { className, colors = ThemeSwitcherThemes.CURRENT } = props
   const { theme, toggleTheme } = useTheme()
   return (
     <Button theme={ButtonThemes.CLEAR} onClick={toggleTheme}>
-      <ThemeIcon className={classNames(cls.icon, {}, [className, cls[colors]])} />
+      <ThemeIcon
+        className={classNames(cls.icon, {}, [className, cls[colors]])}
+      />
     </Button>
   )
 })

@@ -8,8 +8,11 @@ export interface componentRenderProps {
   route?: string
 }
 
-export function componentRender(component: ReactNode, options: componentRenderProps = {}) {
-  const { route } = options
+export function componentRender(
+  component: ReactNode,
+  options: componentRenderProps = {},
+) {
+  const { route = '/' } = options
   return render(
     <MemoryRouter initialEntries={[route]}>
       <I18nextProvider i18n={i18nForTesting}>{component}</I18nextProvider>

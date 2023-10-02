@@ -3,9 +3,6 @@ import { userActions } from 'entities/User'
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk'
 import { loginByUserName } from './loginByUserName'
 
-jest.mock('axios')
-
-const mockedAxios = jest.mocked(axios, true)
 /*
 Example
 
@@ -44,26 +41,28 @@ describe('loginByUserName', () => {
 */
 describe('loginByUserName', () => {
   test('loginByUserName.test success', async () => {
-    const userVal = { username: 'admin', id: '1' }
-    mockedAxios.post.mockReturnValue(Promise.resolve({ data: userVal }))
     const thunk = new TestAsyncThunk(loginByUserName)
+    const userVal = { username: 'admin', id: '1' }
+    thunk.api.post.mockReturnValue(Promise.resolve({ data: userVal }))
+
     const result = await thunk.callThunk({ password: '123', username: 'admin' })
     // проверка что экш вызван с данными userVal
     expect(thunk.dispatch).toBeCalledWith(userActions.setAuthData(userVal))
     // проверка что запрос вызван
-    expect(mockedAxios.post).toHaveBeenCalled()
+    expect(thunk.api.post).toHaveBeenCalled()
     // проверка что запрос отработал успешно
     expect(result.meta.requestStatus).toBe('fulfilled')
     // проверка что вернулись данные о пользователе
     expect(result.payload).toEqual(userVal)
   })
   test('loginByUserName.test error', async () => {
-    mockedAxios.post.mockReturnValue(Promise.resolve({ status: 403 }))
     const thunk = new TestAsyncThunk(loginByUserName)
+    thunk.api.post.mockReturnValue(Promise.resolve({ status: 403 }))
+
     const result = await thunk.callThunk({ password: '123', username: 'admin' })
     // проверка что dispatch вызвался 2 раза
     expect(thunk.dispatch).toHaveBeenCalledTimes(2)
-    expect(mockedAxios.post).toHaveBeenCalled()
+    expect(thunk.api.post).toHaveBeenCalled()
     // проверка что запрос отработал c ошибкой
     expect(result.meta.requestStatus).toBe('rejected')
   })

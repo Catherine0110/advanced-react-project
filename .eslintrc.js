@@ -28,6 +28,7 @@ module.exports = {
       'warn',
       { argsIgnorePattern: '^_' },
     ],
+    'no-undef': 'off',
     'react/jsx-indent': [2, 2],
     'react/jsx-indent-props': [2, 2],
     indent: [2, 2],
@@ -69,6 +70,7 @@ module.exports = {
 
   globals: {
     __IS_DEV__: true,
+    __API__: true,
   },
   overrides: [
     {

@@ -19,7 +19,7 @@ export const App = () => {
   const { theme } = useTheme()
   const { close, modal, childAppend } = useContext(ModalContext)
   const dispatch = useDispatch()
-  const appRef = useRef()
+  const appRef = useRef(null)
   const [refA, setRefA] = useState(null)
 
   useEffect(() => {

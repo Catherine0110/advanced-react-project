@@ -12,9 +12,13 @@ interface SideBarItemProps {
 const SideBarItem = memo(({ item, collapsed }: SideBarItemProps) => {
   const { t } = useTranslation()
   return (
-    <AppLink theme={AppLinkTheme.INVERTED_PRIMARY} className={cls.mainLink} to={item.path}>
-      <item.icon className={cls.icon} />
-      {!collapsed && <span className={cls.text}>{t(item.text)}</span>}
+    <AppLink
+      theme={AppLinkTheme.INVERTED_PRIMARY}
+      className={cls.mainLink}
+      to={item.path}
+    >
+      {item.icon && <item.icon className={cls.icon} />}
+      {!collapsed && <span className={cls.text}>{t(item.text || '')}</span>}
     </AppLink>
   )
 })

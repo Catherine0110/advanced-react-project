@@ -18,7 +18,7 @@ export const ModalContext = createContext<IModalContex>({
 
 const ModalState = ({ children }: { children: React.ReactNode }) => {
   const [modal, setModal] = useState(false)
-  const [childAppend, setChi] = useState(null)
+  const [childAppend, setChi] = useState<ReactNode>(null)
   const open = useCallback(() => {
     setModal(true)
     document.body.className = 'overflow'

@@ -18,24 +18,19 @@ export const Light = Template.bind({})
 Light.args = {}
 
 export const Dark = Template.bind({})
-Dark.args = {
-  children: 'Text',
-}
+Dark.args = {}
 
 Dark.decorators = [ThemeDecorator(Theme.DARK)]
 
 export const SizeS = Template.bind({})
 SizeS.args = {
-  children: 'Text',
   size: LoaderSize.S,
 }
 export const SizeM = Template.bind({})
 SizeM.args = {
-  children: 'Text',
   size: LoaderSize.M,
 }
 export const SizeL = Template.bind({})
 SizeL.args = {
-  children: 'Text',
   size: LoaderSize.L,
 }
