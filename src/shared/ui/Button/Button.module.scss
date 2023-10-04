@@ -16,6 +16,11 @@
     outline: none;
 }
 
+.red {
+    color: var(--red-dark);
+    border: 1px solid var(--red-dark);
+}
+
 .outline {
     border: 1px solid var(--primary-color);
     color: var(--primary-color);

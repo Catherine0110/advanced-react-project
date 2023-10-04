@@ -1,3 +1,8 @@
 export { profileActions, profileReducer } from './model/slice/profileSlice'
 export { Profile, ProfileSchema } from './model/types/profile'
 export { fetchProfileData } from './model/services/fetchProfileData'
+export { updateProfile } from './model/services/updateProfile'
+export { getProfileData } from './model/selectors/getProfileData/getProfileData'
+export { getProfileError } from './model/selectors/getProfileError/getProfileError'
+export { getProfileLoad } from './model/selectors/getProfileLoad/getProfileLoad'
+export { getProfileReadOnly } from './model/selectors/getProfileReadOnly/getProfileReadOnly'

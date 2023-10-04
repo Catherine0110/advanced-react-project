@@ -9,4 +9,22 @@
     &::placeholder {
         color: var(--gray-light);
     }
+
+    &:read-only {
+        opacity: 0.7;
+    }
+
+    &[type="number"]::-webkit-outer-spin-button,
+    &[type="number"]::-webkit-inner-spin-button {
+        display: none;
+    }
+
+    &[type="number"] {
+        -moz-appearance: textfield;
+
+        &:hover,
+        &:focus {
+            -moz-appearance: number-input;
+        }
+    }
 }

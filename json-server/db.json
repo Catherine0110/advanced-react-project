@@ -26,13 +26,13 @@
     }
   ],
   "profile": {
-    "first": "Name",
+    "first": "Name1",
     "lastname": "Lastname",
     "age": 22,
     "currency": "RUB",
     "country": "Russia",
     "city": "Moscow",
     "username": "admin",
-    "avatar": "https://services.bionika-digital.ru/static/img/avatar.svg"
+    "avatar": "https://sh1-polyarnyj-r47.gosweb.gosuslugi.ru/netcat_files/11/143/gray_woman_placeholder_18.png"
   }
 }

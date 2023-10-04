@@ -1,0 +1,18 @@
+.label {
+    font-size: var(--font-size-m);
+    margin-right: 10px;
+}
+
+.readonly {
+    opacity: 0.7;
+}
+
+.select {
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.option {
+    background: var(--bg-color-secondary);
+    color: var(--primary-color);
+}
