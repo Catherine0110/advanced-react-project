@@ -27,5 +27,10 @@
   "Город": "City",
   "Аватар": "Ava",
   "Выбор валюты": "Currency",
-  "Выбор страны": "Country"
+  "Выбор страны": "Country",
+  "Некорректная страна": "Incorrect country",
+  "Введите возраст": "Incorrect age",
+  "Некорректные данные": "Incorrect data",
+  "Заполните данные": "Empty data",
+  "Серверная ошибка": "Server error"
 }

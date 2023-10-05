@@ -1,7 +1,8 @@
 import { Country } from 'entities/Country/model/types/Country'
 import { Currency } from 'entities/Currency'
-import { fetchProfileData, getProfileData, getProfileError, getProfileLoad, getProfileReadOnly, profileActions, profileReducer } from 'entities/Profile'
+import { fetchProfileData, getProfileData, getProfileError, getProfileLoad, getProfileReadOnly, profileActions, profileReducer, validateErrors } from 'entities/Profile'
 import { getProfileForm } from 'entities/Profile/model/selectors/getProfileForm/getProfileForm'
+import { getProfileValidateErrors } from 'entities/Profile/model/selectors/getProfileValidateErrors/getProfileValidateErrors'
 import ProfileCard from 'entities/Profile/ui/ProfileCard/ProfileCard'
 import ProfileHeader from 'entities/Profile/ui/ProfileHeader/ProfileHeader'
 import { useEffect } from 'react'
@@ -12,6 +13,7 @@ import {
   ReducersList,
 } from 'shared/lib/components/DynamicModuleLoader'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
+import Text, { TextTheme } from 'shared/ui/Text/Text'
 
 const reducers: ReducersList = {
   profile: profileReducer,
@@ -24,6 +26,15 @@ const ProfilePage = () => {
   const error = useSelector(getProfileError)
   const loading = useSelector(getProfileLoad)
   const readOnly = useSelector(getProfileReadOnly)
+  const validateProfileErrors = useSelector(getProfileValidateErrors)
+  const validateProfileErrorsTranslate = {
+    [validateErrors.INCORRECT_COUNTRY]: t('Некорректная страна'),
+    [validateErrors.INCORRECT_USER_AGE]: t('Введите возраст'),
+    [validateErrors.INCORRECT_USER_DATA]: t('Некорректные данные'),
+    [validateErrors.NO_DATA]: t('Заполните данные'),
+    [validateErrors.SERVER_ERROR]: t('Серверная ошибка'),
+  }
+
   const onChangeFirstName = (val: string) => {
     dispatch(profileActions.updateProfile({ first: val || '' }))
   }
@@ -50,12 +61,15 @@ const ProfilePage = () => {
   }
 
   useEffect(() => {
-    dispatch(fetchProfileData())
+    if (__PROJECT__ !== 'storybook') {
+      dispatch(fetchProfileData())
+    }
   }, [dispatch])
 
   return (
     <DynamicModuleLoader removeAfterUnmount reducers={reducers}>
       <ProfileHeader />
+      {validateProfileErrors?.length && validateProfileErrors.map((er) => <Text text={validateProfileErrorsTranslate[er]} key={er} theme={TextTheme.ERROR} />)}
       <ProfileCard
         onChangeCity={onChangeCity}
         onChangeAge={onChangeAge}

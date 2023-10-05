@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 import { getProfileReadOnly } from 'entities/Profile/model/selectors/getProfileReadOnly/getProfileReadOnly';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { profileActions } from 'entities/Profile/model/slice/profileSlice';
-import { updateProfile } from 'entities/Profile/model/services/updateProfile';
+import { updateProfile } from 'entities/Profile/model/services/updateProfile/updateProfile';
 import cls from './ProfileHeader.module.scss'
 
 const ProfileHeader = () => {
