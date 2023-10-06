@@ -11,14 +11,15 @@ import 'shared/config/i18next/i18n'
 import { ModalContext } from 'app/providers/Modal/lib/ModalContext'
 
 import Modal from 'shared/ui/Modal/Modal'
-import { useDispatch } from 'react-redux'
-import { userActions } from 'entities/User'
+import { useDispatch, useSelector } from 'react-redux'
+import { getUserAuthInit, userActions } from 'entities/User'
 import { useTheme } from './providers/ThemeProvider/lib/useTheme'
 
 export const App = () => {
   const { theme } = useTheme()
   const { close, modal, childAppend } = useContext(ModalContext)
   const dispatch = useDispatch()
+  const init = useSelector(getUserAuthInit)
   const appRef = useRef(null)
   const [refA, setRefA] = useState(null)
 
@@ -33,7 +34,7 @@ export const App = () => {
         <NavBar />
         <div className="page-content">
           <SideBar />
-          <AppRouter />
+          {init && <AppRouter />}
         </div>
         <Modal lazy isOpen={modal} closeModal={close}>
           {childAppend}

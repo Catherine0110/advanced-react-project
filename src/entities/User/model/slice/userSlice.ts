@@ -4,6 +4,7 @@ import { UserSchema } from 'entities/User/model/types/user'
 import { USER_LOCALS_KEY } from 'shared/const/localStorage'
 
 const initialState: UserSchema = {
+  _inited: false,
 }
 
 export const userSlice = createSlice({
@@ -18,6 +19,7 @@ export const userSlice = createSlice({
       if (user) {
         state.authData = JSON.parse(user)
       }
+      state._inited = true
     },
     logOut: (state) => {
       state.authData = undefined
