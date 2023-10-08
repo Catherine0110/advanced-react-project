@@ -1,0 +1,26 @@
+.imgWrap {
+    text-align: center;
+    margin-bottom: 44px;
+}
+
+.titleBlock {
+    margin-bottom: 7px;
+}
+
+.articleInfo {
+    display: flex;
+    align-items: center;
+
+    &:not(:last-child) {
+        margin-bottom: 4px;
+    }
+}
+
+.articleInfoWrap {
+    margin-bottom: 20px;
+}
+
+.icon {
+    flex-shrink: 0;
+    margin-right: 7px;
+}

@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 import Button, { ButtonThemes } from 'shared/ui/Button/Button';
-import Text from 'shared/ui/Text/Text';
+import Text, { TextSize } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { getProfileReadOnly } from 'entities/Profile/model/selectors/getProfileReadOnly/getProfileReadOnly';
@@ -25,7 +25,7 @@ const ProfileHeader = () => {
   }, [dispatch])
   return (
     <div className={cls.header}>
-      <Text title={t('Профиль')} />
+      <Text size={TextSize.L} title={t('Профиль')} />
       {readOnly ? (
         <Button onClick={onEdit} className={cls.btnEdit} theme={ButtonThemes.OUTLINE}>
           {t('Редактировать')}

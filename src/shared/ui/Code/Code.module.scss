@@ -1,0 +1,16 @@
+.CodeWrap {
+    position: relative;
+}
+
+.Code {
+    border: 1px solid var(--primary-color);
+    background-color: var(--bg-color-secondary);
+    padding: 18px 30px;
+    overflow-x: auto;
+}
+
+.copyBtn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}

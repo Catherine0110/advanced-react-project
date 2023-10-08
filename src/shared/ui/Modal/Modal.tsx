@@ -2,6 +2,7 @@ import React, { MutableRefObject, useCallback, useEffect, useRef, useState } fro
 import Portal from 'shared/ui/Portal/Portal'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { useTheme } from 'app/providers/ThemeProvider'
+
 import cls from './Modal.module.scss'
 
 interface ModalProp {

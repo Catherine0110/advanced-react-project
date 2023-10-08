@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux'
 import { loginActions, loginReducer } from 'features/AuthByUserName/modal/slice/loginSlice'
 import { loginByUserName } from 'features/AuthByUserName/modal/services/loginByUserName/loginByUserName'
 import Loader, { LoaderSize } from 'shared/ui/Loader/Loader'
-import Text, { TextTheme } from 'shared/ui/Text/Text'
+import Text, { TextSize, TextTheme } from 'shared/ui/Text/Text'
 
 import { ReducersList, DynamicModuleLoader } from 'shared/lib/components/DynamicModuleLoader'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
@@ -55,7 +55,7 @@ const LoginForm = ({ className }: LoginFormProps) => {
   return (
     <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
       <form className={classNames(cls.LoginForm, {}, [className])}>
-        <Text className={cls.title} title={t('Авторизация')} />
+        <Text size={TextSize.L} className={cls.title} title={t('Авторизация')} />
         {error && <Text theme={TextTheme.ERROR} text={error} />}
         <Input value={username} onChange={changeUserName} autoFocus className={cls.Input} placeholder={t('Логин')} />
         <Input value={password} onChange={changePassword} className={cls.Input} placeholder={t('Пароль')} />

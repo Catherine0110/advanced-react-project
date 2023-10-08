@@ -1,6 +1,6 @@
 import React from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
-import Text, { TextTheme } from 'shared/ui/Text/Text'
+import Text, { TextSize, TextTheme } from 'shared/ui/Text/Text'
 import { useTranslation } from 'react-i18next'
 import Button, { ButtonThemes } from 'shared/ui/Button/Button'
 import Input from 'shared/ui/Input/Input'
@@ -36,7 +36,7 @@ const ProfileCard = (props: ProfileCardProps) => {
   if (error) {
     return (
       <div className={cls.errWrap}>
-        <Text theme={TextTheme.ERROR} title={t('Произошла ошибка')} />
+        <Text size={TextSize.L} theme={TextTheme.ERROR} title={t('Произошла ошибка')} />
       </div>
     )
   }
