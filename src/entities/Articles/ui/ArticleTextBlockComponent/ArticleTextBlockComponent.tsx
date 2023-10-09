@@ -14,7 +14,7 @@ const ArticleTextBlockComponent = (props: ArticleTextBlockComponentProps) => {
   return (
     <div className={classNames(cls.ArticleTextBlockComponent, {}, [className])}>
       {block.title && <Text title={block.title} className={cls.title} /> }
-      {block.paragraphs?.map((p) => <Text text={p} className={cls.paragraph} />) }
+      {block.paragraphs?.map((p) => <Text key={p} text={p} className={cls.paragraph} />) }
     </div>
   )
 }

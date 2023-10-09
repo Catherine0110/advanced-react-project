@@ -11,20 +11,6 @@
       "userId": "2"
     }
   ],
-  "comments": [
-    {
-      "id": "1",
-      "body": "some comment",
-      "postId": "1"
-    }
-  ],
-  "users": [
-    {
-      "id": "1",
-      "username": "admin",
-      "password": "123"
-    }
-  ],
   "articles": [
     {
       "id": "1",
@@ -33,7 +19,9 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "26.02.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -96,14 +84,50 @@
       ]
     }
   ],
+  "comments": [
+    {
+      "id": "1",
+      "text": "some comment",
+      "articleId": "1",
+      "userId": "1"
+    },
+    {
+      "id": "2",
+      "text": "some comment 2",
+      "articleId": "1",
+      "userId": "1"
+    },
+    {
+      "id": "3",
+      "text": "some comment 3",
+      "articleId": "1",
+      "userId": "1"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "username": "admin",
+      "password": "123",
+      "role": "ADMIN",
+      "avatar": "https://i.pinimg.com/736x/c6/a7/08/c6a708a4cec8e91f006d4b024760ea37.jpg"
+    },
+    {
+      "id": "2",
+      "username": "user",
+      "password": "123",
+      "role": "USER",
+      "avatar": "https://i.pinimg.com/736x/c6/a7/08/c6a708a4cec8e91f006d4b024760ea37.jpg"
+    }
+  ],
   "profile": {
-    "first": "Name1",
-    "lastname": "Lastname",
-    "age": 22,
+    "first": "jgh",
+    "lastname": "asf",
+    "age": 465,
     "currency": "RUB",
-    "country": "Russia",
+    "country": "Belarus",
     "city": "Moscow",
-    "username": "admin",
-    "avatar": "https://sh1-polyarnyj-r47.gosweb.gosuslugi.ru/netcat_files/11/143/gray_woman_placeholder_18.png"
+    "username": "admin213",
+    "avatar": "https://avatars.mds.yandex.net/get-zen_doc/3413519/pub_5ff887b2fe4e686f6ae6ba3f_5ff887d7f906b16872a69755/scale_1200"
   }
 }
