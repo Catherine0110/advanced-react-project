@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react'
+import React, { memo, useCallback } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader'
 import Input from 'shared/ui/Input/Input'
@@ -19,7 +19,7 @@ const reducers: ReducersList = {
   addCommentForm: addCommentFormReducer,
 }
 
-const AddCommentForm = (props: AddCommentFormProps) => {
+const AddCommentForm = memo((props: AddCommentFormProps) => {
   const { className, onSendComment } = props
   const text = useSelector(addCommentFormText)
   const dispatch = useAppDispatch()
@@ -44,6 +44,6 @@ const AddCommentForm = (props: AddCommentFormProps) => {
       </div>
     </DynamicModuleLoader>
   )
-}
+})
 
 export default AddCommentForm
