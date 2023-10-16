@@ -102,6 +102,30 @@
       "text": "some comment 3",
       "articleId": "1",
       "userId": "1"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "some comment 4",
+      "id": "s5YElCB"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "some comment 5",
+      "id": "ZajffPh"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "some comment 1",
+      "id": "30DriTE"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "some user comment ",
+      "id": "4CkvM4I"
     }
   ],
   "users": [
@@ -117,17 +141,31 @@
       "username": "user",
       "password": "123",
       "role": "USER",
-      "avatar": "https://i.pinimg.com/736x/c6/a7/08/c6a708a4cec8e91f006d4b024760ea37.jpg"
+      "avatar": "https://cdn.fishki.net/upload/post/2016/08/15/2043312/kotejka-zhivnost-glaza-1223215.jpg"
     }
   ],
-  "profile": {
-    "first": "jgh",
-    "lastname": "asf",
-    "age": 465,
-    "currency": "RUB",
-    "country": "Belarus",
-    "city": "Moscow",
-    "username": "admin213",
-    "avatar": "https://avatars.mds.yandex.net/get-zen_doc/3413519/pub_5ff887b2fe4e686f6ae6ba3f_5ff887d7f906b16872a69755/scale_1200"
-  }
+  "profile": [
+    {
+      "id": "1",
+      "first": "jgh",
+      "lastname": "asf",
+      "age": 465,
+      "currency": "RUB",
+      "country": "Belarus",
+      "city": "Minsk",
+      "username": "admin",
+      "avatar": "https://i.pinimg.com/736x/c6/a7/08/c6a708a4cec8e91f006d4b024760ea37.jpg"
+    },
+    {
+      "id": "2",
+      "first": "userName",
+      "lastname": "lastname1",
+      "age": 21,
+      "currency": "RUB",
+      "country": "Russia",
+      "city": "Moscow",
+      "username": "user",
+      "avatar": "https://cdn.fishki.net/upload/post/2016/08/15/2043312/kotejka-zhivnost-glaza-1223215.jpg"
+    }
+  ]
 }

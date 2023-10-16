@@ -8,11 +8,13 @@ import ProfileHeader from 'entities/Profile/ui/ProfileHeader/ProfileHeader'
 import { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
+import { useParams } from 'react-router-dom'
 import {
   DynamicModuleLoader,
   ReducersList,
 } from 'shared/lib/components/DynamicModuleLoader'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEfect'
 import Text, { TextTheme } from 'shared/ui/Text/Text'
 
 const reducers: ReducersList = {
@@ -59,12 +61,13 @@ const ProfilePage = () => {
   const onChangeCountry = (country: Country) => {
     dispatch(profileActions.updateProfile({ country }))
   }
+  const { id } = useParams<{id:string}>()
 
-  useEffect(() => {
-    if (__PROJECT__ !== 'storybook') {
-      dispatch(fetchProfileData())
+  useInitialEffect(() => {
+    if (id) {
+      dispatch(fetchProfileData(id))
     }
-  }, [dispatch])
+  })
 
   return (
     <DynamicModuleLoader removeAfterUnmount reducers={reducers}>

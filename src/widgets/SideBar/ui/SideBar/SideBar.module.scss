@@ -4,6 +4,7 @@
     width: var(--navbar-uncollapsed-width);
     transition: all 0.2s ease-in;
     height: calc(100vh - 85px);
+    flex-shrink: 0;
 }
 
 .swithers {

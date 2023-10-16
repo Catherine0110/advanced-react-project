@@ -7,12 +7,18 @@ import { getProfileReadOnly } from 'entities/Profile/model/selectors/getProfileR
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { profileActions } from 'entities/Profile/model/slice/profileSlice';
 import { updateProfile } from 'entities/Profile/model/services/updateProfile/updateProfile';
+import { getProfileData } from 'entities/Profile/model/selectors/getProfileData/getProfileData';
+import { getUserAuthData } from 'entities/User';
 import cls from './ProfileHeader.module.scss'
 
 const ProfileHeader = () => {
   const { t } = useTranslation()
   const dispatch = useAppDispatch()
   const readOnly = useSelector(getProfileReadOnly)
+  const userId = useSelector(getProfileData)
+  const authUserId = useSelector(getUserAuthData)
+  const editableProfile = authUserId?.id === userId?.id
+
   const onEdit = useCallback(() => {
     dispatch(profileActions.setReadOnly(false))
   }, [dispatch])
@@ -26,7 +32,7 @@ const ProfileHeader = () => {
   return (
     <div className={cls.header}>
       <Text size={TextSize.L} title={t('Профиль')} />
-      {readOnly ? (
+      {editableProfile && (readOnly ? (
         <Button onClick={onEdit} className={cls.btnEdit} theme={ButtonThemes.OUTLINE}>
           {t('Редактировать')}
         </Button>
@@ -40,7 +46,7 @@ const ProfileHeader = () => {
               {t('Сохранить')}
             </Button>
           </div>
-        )}
+        ))}
     </div>
   )
 };

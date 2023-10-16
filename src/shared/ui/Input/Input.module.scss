@@ -4,10 +4,10 @@
     font-size: var(--font-m);
     border-radius: 10px;
     outline: none;
-    border: 1px solid var(--gray);
+    border: 1px solid var(--secondary-color);
 
     &::placeholder {
-        color: var(--gray-light);
+        color: var(--bg-color-secondary);
     }
 
     &:read-only {

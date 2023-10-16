@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useCallback, useEffect } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { ArticleDetails } from 'entities/Articles'
 import { useParams } from 'react-router-dom'
@@ -12,8 +12,10 @@ import { useSelector } from 'react-redux'
 import { getCommentsLoad } from 'pages/ArticlePageDetail/model/selectors/comments'
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEfect'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
+import { AddCommentForm } from 'features/addCommentForm'
 import cls from './ArticlePageDetail.module.scss'
 import { fetchArticleCommentsById } from '../model/services/fetchArticleCommentsById/fetchArticleCommentsById'
+import { addCommentForArticle } from '../model/services/addCommentForArticle/addCommentForArticle'
 
 interface ArticlePageDetailProps {
   className?: string
@@ -31,8 +33,14 @@ const ArticlePageDetail = (props: ArticlePageDetailProps) => {
   const commentsLoad = useSelector(getCommentsLoad)
   const dispatch = useAppDispatch()
 
+  const onSendComment = useCallback((text:string) => {
+    dispatch(addCommentForArticle(text))
+  }, [dispatch])
+
   useInitialEffect(() => {
-    dispatch(fetchArticleCommentsById('2'))
+    if (id) {
+      dispatch(fetchArticleCommentsById(id))
+    }
   })
 
   if (!id) {
@@ -43,23 +51,12 @@ const ArticlePageDetail = (props: ArticlePageDetailProps) => {
     );
   }
 
-  const commentExample: Comment[] = [
-    {
-      id: '1',
-      text: 'some comment',
-      user: { username: 's', id: '10', avatar: 'https://i.pinimg.com/736x/c6/a7/08/c6a708a4cec8e91f006d4b024760ea37.jpg' },
-    },
-    {
-      id: '2',
-      text: 'some comment2',
-      user: { username: 's', id: '11', avatar: 'https://i.pinimg.com/736x/c6/a7/08/c6a708a4cec8e91f006d4b024760ea37.jpg' },
-    },
-  ]
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <div className={classNames(cls.ArticlePageDetail, {}, [className])}>
         <ArticleDetails id={id} />
         <Text className={cls.commentTitle} title={t('Комментарии')} />
+        <AddCommentForm onSendComment={onSendComment} />
         <CommentList isLoading={commentsLoad} comments={comments} />
       </div>
     </DynamicModuleLoader>
