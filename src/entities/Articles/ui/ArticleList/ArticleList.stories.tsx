@@ -1,16 +1,24 @@
 /* eslint-disable max-len */
-import React from 'react'
-import { classNames } from 'shared/lib/classNames/classNames'
-import ArticleList from 'entities/Articles/ui/ArticleList/ArticleList'
-import { Articles } from 'entities/Articles'
-import { ArticleView } from 'entities/Articles/models/types/articles'
-import cls from './ArticlePage.module.scss'
+import { ComponentStory, ComponentMeta } from '@storybook/react'
 
-interface ArticlePageProps {
-  className?: string
-}
+import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator'
+import { Theme } from 'app/providers/ThemeProvider'
+import { ArticleView, Articles } from 'entities/Articles/models/types/articles'
+import ArticleList from './ArticleList'
 
-const art = [
+export default {
+  title: 'entities/ArticleList',
+  component: ArticleList,
+  argTypes: {
+    backgroundColor: { control: 'color' },
+  },
+} as ComponentMeta<typeof ArticleList>
+
+const Template: ComponentStory<typeof ArticleList> = (args) => (
+  <ArticleList {...args} />
+)
+
+const articles = [
   {
     id: '1',
     title: 'Javascript news',
@@ -313,14 +321,25 @@ const art = [
   },
 ] as Articles[]
 
-const ArticlePage = (props: ArticlePageProps) => {
-  const { className } = props
-  return (
-    // eslint-disable-next-line i18next/no-literal-string
-    <div className={classNames(cls.ArticlePage, {}, [className])}>
-      <ArticleList view={ArticleView.BIG} articles={art} />
-    </div>
-  )
+export const Big = Template.bind({})
+Big.args = {
+  articles,
+  view: ArticleView.BIG,
 }
-
-export default ArticlePage
+export const Small = Template.bind({})
+Small.args = {
+  articles,
+  view: ArticleView.SMALL,
+}
+export const LoadBig = Template.bind({})
+LoadBig.args = {
+  articles,
+  view: ArticleView.BIG,
+  isLoading: true,
+}
+export const LoadSmall = Template.bind({})
+LoadSmall.args = {
+  articles,
+  view: ArticleView.SMALL,
+  isLoading: true,
+}

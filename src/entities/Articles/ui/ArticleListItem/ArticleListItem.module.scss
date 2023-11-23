@@ -1,0 +1,128 @@
+.ArticleListItem {
+    position: relative;
+}
+
+.SMALL {
+    width: 230px;
+
+    .ArticleListItemImgDate {
+        position: absolute;
+        top: 20px;
+        right: 15px;
+        opacity: 0;
+        transition: 0.2s ease;
+    }
+
+    .card {
+        transition: 0.2s ease;
+        cursor: pointer;
+
+        &:hover {
+            transform: scale(1.01);
+
+            .ArticleListItemImgDate {
+                opacity: 1;
+            }
+        }
+
+        &.ArticleListItemSkeleton {
+            cursor: auto;
+
+            &:hover {
+                transform: none;
+            }
+        }
+    }
+
+    .ArticleListItemImg {
+        width: 100%;
+    }
+
+    .ArticleListItemImgWrap {
+        margin-bottom: 10px;
+    }
+
+    .ArticleListItemContentHead {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+
+    .ArticleListItemTypes {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 130px;
+        white-space: nowrap;
+    }
+
+    .ArticleListItemContentViews {
+        display: flex;
+        align-items: center;
+    }
+
+    .ArticleListItemContentView {
+        margin-right: 10px;
+    }
+
+    .ArticleListItemContentTitle {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        width: 90%;
+    }
+}
+
+.BIG {
+    .avaWrap {
+        display: flex;
+        align-items: center;
+    }
+
+    .text {
+        margin-bottom: 30px;
+    }
+
+    .ArticleListItemContentViews {
+        display: flex;
+        align-items: center;
+    }
+
+    .ArticleListItemContentView {
+        margin-right: 15px;
+    }
+
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+
+    .ava {
+        margin-right: 10px;
+    }
+
+    .title {
+        margin-bottom: 10px;
+    }
+
+    .img {
+        width: 100%;
+        object-fit: cover;
+        margin-bottom: 10px;
+        height: 200px;
+    }
+
+    .footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .blockText {
+        max-height: 250px;
+        overflow-y: hidden;
+        margin-bottom: 20px;
+    }
+}

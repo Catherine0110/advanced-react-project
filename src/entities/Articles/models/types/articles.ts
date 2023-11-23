@@ -1,3 +1,4 @@
+import { User } from 'entities/User'
 import { type } from 'os'
 
 export enum ArticleType {
@@ -37,6 +38,7 @@ export interface Articles {
       title: string,
       subtitle: string,
       img: string,
+      user: User,
       views: number,
       createdAt: string,
       type: ArticleType[],
@@ -47,4 +49,9 @@ export interface ArticlesSchema {
     data?: Articles,
     isLoad?: boolean,
     error?: string
+}
+
+export enum ArticleView {
+    BIG = 'BIG',
+    SMALL = 'SMALL'
 }

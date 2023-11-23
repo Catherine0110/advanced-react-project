@@ -60,6 +60,7 @@ module.exports = {
     'jsx-a11y/label-has-associated-control': 'off',
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'error',
+    'react/no-array-index-key': 'off',
     'no-param-reassign': ['error', {
       props: true,
       ignorePropertyModificationsFor: [

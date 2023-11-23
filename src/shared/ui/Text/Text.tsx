@@ -20,16 +20,32 @@ interface TextProps {
   className?: string
   theme?: TextTheme
   text?: string | number
-  title?: string,
-  align?: TextAlign,
+  title?: string
+  align?: TextAlign
   size?: TextSize
 }
 
-const Text = memo(({ className, theme = TextTheme.PRIMARY, text, title, align = TextAlign.LEFT, size = TextSize.L }: TextProps) => (
-  <div className={classNames(cls.TextWrap, {}, [className, cls[theme], cls[align], cls[size]])}>
-    {title && <h3 className={cls.title}>{title}</h3>}
-    {text && <p className={cls.text}>{text}</p>}
-  </div>
-))
+const Text = memo(
+  ({
+    className,
+    theme = TextTheme.PRIMARY,
+    text,
+    title,
+    align = TextAlign.LEFT,
+    size = TextSize.L,
+  }: TextProps) => (
+    <div
+      className={classNames(cls.TextWrap, {}, [
+        className,
+        cls[theme],
+        cls[align],
+        cls[size],
+      ])}
+    >
+      {title && <h3 className={cls.title}>{title}</h3>}
+      {text && <p className={cls.text}>{text}</p>}
+    </div>
+  ),
+)
 
 export default Text
