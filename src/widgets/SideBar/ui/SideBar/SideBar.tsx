@@ -27,7 +27,7 @@ const SideBar = memo((props: SideBarProps) => {
   }
 
   return (
-    <div
+    <menu
       data-testid="sidebar"
       className={classNames(cls.SideBar, { [cls.collapsed]: collapsed }, [
         className,
@@ -52,7 +52,7 @@ const SideBar = memo((props: SideBarProps) => {
       >
         {t(`${collapsed ? '<' : '>'}`)}
       </Button>
-    </div>
+    </menu>
   )
 })
 

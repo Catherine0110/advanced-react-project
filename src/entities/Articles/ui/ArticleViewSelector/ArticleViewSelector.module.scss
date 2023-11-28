@@ -1,0 +1,22 @@
+.notSelected {
+    opacity: 0.7;
+}
+
+.btn {
+    color: var(--primary-color);
+    cursor: pointer;
+
+    &:first-child {
+        margin-right: 10px;
+    }
+
+    &:hover {
+        color: var(--secondary-color);
+    }
+}
+
+.ArticleViewSelector {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}

@@ -21,6 +21,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
 import { AddCommentForm } from 'features/addCommentForm'
 import Button from 'shared/ui/Button/Button'
 import { RoutePaths } from 'shared/config/routeConfig/routeConfig'
+import Page from 'shared/ui/Page/Page'
 import cls from './ArticlePageDetail.module.scss'
 import { fetchArticleCommentsById } from '../model/services/fetchArticleCommentsById/fetchArticleCommentsById'
 import { addCommentForArticle } from '../model/services/addCommentForArticle/addCommentForArticle'
@@ -61,21 +62,21 @@ const ArticlePageDetail = (props: ArticlePageDetailProps) => {
 
   if (!id) {
     return (
-      <div className={classNames(cls.ArticlePageDetail, {}, [className])}>
+      <Page className={classNames(cls.ArticlePageDetail, {}, [className])}>
         {t('Статья не найдена')}
-      </div>
+      </Page>
     )
   }
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-      <div className={classNames(cls.ArticlePageDetail, {}, [className])}>
+      <Page className={classNames(cls.ArticlePageDetail, {}, [className])}>
         <Button onClick={onBackToList}>{t('Назад к списку')}</Button>
         <ArticleDetails id={id} />
         <Text className={cls.commentTitle} title={t('Комментарии')} />
         <AddCommentForm onSendComment={onSendComment} />
         <CommentList isLoading={commentsLoad} comments={comments} />
-      </div>
+      </Page>
     </DynamicModuleLoader>
   )
 }

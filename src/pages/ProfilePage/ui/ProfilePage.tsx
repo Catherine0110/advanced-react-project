@@ -1,6 +1,15 @@
 import { Country } from 'entities/Country/model/types/Country'
 import { Currency } from 'entities/Currency'
-import { fetchProfileData, getProfileData, getProfileError, getProfileLoad, getProfileReadOnly, profileActions, profileReducer, validateErrors } from 'entities/Profile'
+import {
+  fetchProfileData,
+  getProfileData,
+  getProfileError,
+  getProfileLoad,
+  getProfileReadOnly,
+  profileActions,
+  profileReducer,
+  validateErrors,
+} from 'entities/Profile'
 import { getProfileForm } from 'entities/Profile/model/selectors/getProfileForm/getProfileForm'
 import { getProfileValidateErrors } from 'entities/Profile/model/selectors/getProfileValidateErrors/getProfileValidateErrors'
 import ProfileCard from 'entities/Profile/ui/ProfileCard/ProfileCard'
@@ -15,6 +24,7 @@ import {
 } from 'shared/lib/components/DynamicModuleLoader'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEfect'
+import Page from 'shared/ui/Page/Page'
 import Text, { TextTheme } from 'shared/ui/Text/Text'
 
 const reducers: ReducersList = {
@@ -61,7 +71,7 @@ const ProfilePage = () => {
   const onChangeCountry = (country: Country) => {
     dispatch(profileActions.updateProfile({ country }))
   }
-  const { id } = useParams<{id:string}>()
+  const { id } = useParams<{ id: string }>()
 
   useInitialEffect(() => {
     if (id) {
@@ -71,22 +81,31 @@ const ProfilePage = () => {
 
   return (
     <DynamicModuleLoader removeAfterUnmount reducers={reducers}>
-      <ProfileHeader />
-      {validateProfileErrors?.length && validateProfileErrors.map((er) => <Text text={validateProfileErrorsTranslate[er]} key={er} theme={TextTheme.ERROR} />)}
-      <ProfileCard
-        onChangeCity={onChangeCity}
-        onChangeAge={onChangeAge}
-        onChangeFirstName={onChangeFirstName}
-        onChangeLastName={onChangeLastName}
-        onChangeAva={onChangeAva}
-        onChangeLogin={onChangeLogin}
-        onChangeCurrency={onChangeCurrency}
-        onChangeCountry={onChangeCountry}
-        readOnly={readOnly}
-        data={data}
-        error={error}
-        loading={loading}
-      />
+      <Page>
+        <ProfileHeader />
+        {validateProfileErrors?.length &&
+          validateProfileErrors.map((er) => (
+            <Text
+              text={validateProfileErrorsTranslate[er]}
+              key={er}
+              theme={TextTheme.ERROR}
+            />
+          ))}
+        <ProfileCard
+          onChangeCity={onChangeCity}
+          onChangeAge={onChangeAge}
+          onChangeFirstName={onChangeFirstName}
+          onChangeLastName={onChangeLastName}
+          onChangeAva={onChangeAva}
+          onChangeLogin={onChangeLogin}
+          onChangeCurrency={onChangeCurrency}
+          onChangeCountry={onChangeCountry}
+          readOnly={readOnly}
+          data={data}
+          error={error}
+          loading={loading}
+        />
+      </Page>
     </DynamicModuleLoader>
   )
 }

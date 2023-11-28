@@ -23,25 +23,17 @@ const ArticleList = (props: ArticleListProps) => {
     />
   )
 
-  if (isLoading) {
-    return (
-      <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
-        {new Array(view === ArticleView.SMALL ? 9 : 3)
-          .fill(0)
-          .map((item, index) => (
-            <ArticleListItemSkeleton
-              className={cls.card}
-              view={view}
-              key={index}
-            />
-          ))}
-      </div>
-    )
-  }
+  const getSkeletons = (view: ArticleView) =>
+    new Array(view === ArticleView.SMALL ? 9 : 3)
+      .fill(0)
+      .map((item, index) => (
+        <ArticleListItemSkeleton className={cls.card} key={index} view={view} />
+      ))
 
   return (
     <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
       {articles?.length > 0 ? articles?.map(renderItems) : null}
+      {isLoading && getSkeletons(view)}
     </div>
   )
 }

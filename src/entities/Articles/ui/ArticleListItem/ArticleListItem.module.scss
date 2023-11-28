@@ -14,8 +14,11 @@
     }
 
     .card {
+        display: flex;
+        flex-direction: column;
         transition: 0.2s ease;
         cursor: pointer;
+        height: 100%;
 
         &:hover {
             transform: scale(1.01);
@@ -36,10 +39,14 @@
 
     .ArticleListItemImg {
         width: 100%;
+        object-fit: cover;
+        aspect-ratio: 1/2;
+        max-height: 150px;
     }
 
     .ArticleListItemImgWrap {
         margin-bottom: 10px;
+        flex-grow: 1;
     }
 
     .ArticleListItemContentHead {

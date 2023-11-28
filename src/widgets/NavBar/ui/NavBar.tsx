@@ -34,13 +34,16 @@ const NavBar = memo(({ className }: NavBarProps) => {
     dispatch(userActions.logOut())
   }
   return (
-    <div className={classNames(cls.NavBar, {}, [className])}>
+    <header className={classNames(cls.NavBar, {}, [className])}>
       <div className={cls.linksWrap}>
-        <Button onClick={authData ? logOut : openM} theme={ButtonThemes.OUTLINE_Inverted}>
+        <Button
+          onClick={authData ? logOut : openM}
+          theme={ButtonThemes.OUTLINE_Inverted}
+        >
           {authData ? t('Выйти') : t('Войти')}
         </Button>
       </div>
-    </div>
+    </header>
   )
 })
 
